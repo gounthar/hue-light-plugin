@@ -1,3 +1,4 @@
+<?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
   <f:section title="Hue-Light">
     <f:entry title="IP of the bridge" field="bridgeIp">
@@ -6,16 +7,16 @@
     <f:entry title="Username" field="bridgeUsername">
       <f:textbox />
     </f:entry>
-    <f:entry title="Red" field="colorRed">
+    <f:entry title="Red" field="red">
       <f:textbox default="0" />
     </f:entry>
-    <f:entry title="Yellow" field="colorYellow">
+    <f:entry title="Yellow" field="yellow">
       <f:textbox default="12750" />
     </f:entry>
-    <f:entry title="Green" field="colorGreen">
+    <f:entry title="Green" field="green">
       <f:textbox default="25717" />
     </f:entry>
-    <f:entry title="Blue" field="colorBlue">
+    <f:entry title="Blue" field="blue">
       <f:textbox default="46920" />
     </f:entry>
     <f:entry title="Saturation" field="saturation">
