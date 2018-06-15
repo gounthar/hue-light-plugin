@@ -27,14 +27,6 @@ import org.kohsuke.stapler.DataBoundSetter;
 
 
 public class LightNotifier extends Notifier {
-    private static final String FORM_KEY_BRIDGE_IP = "bridgeIp";
-    private static final String FORM_KEY_BRIDGE_USERNAME = "bridgeUsername";
-    private static final String FORM_KEY_BLUE = "blue";
-    private static final String FORM_KEY_GREEN = "green";
-    private static final String FORM_KEY_YELLOW = "yellow";
-    private static final String FORM_KEY_RED = "red";
-    private static final String FORM_KEY_SATURATION = "saturation";
-    private static final String FORM_KEY_BRIGHTNESS = "brightness";
     private final HashSet<String> lightId;
     private final String preBuild;
     private final String goodBuild;
