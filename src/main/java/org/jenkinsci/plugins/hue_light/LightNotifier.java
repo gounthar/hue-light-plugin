@@ -23,17 +23,10 @@ import nl.q42.jue.Light;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.DataBoundSetter;
 
 
 public class LightNotifier extends Notifier {
-    private static final String FORM_KEY_BRIDGE_IP = "bridgeIp";
-    private static final String FORM_KEY_BRIDGE_USERNAME = "bridgeUsername";
-    private static final String FORM_KEY_BLUE = "colorBlue";
-    private static final String FORM_KEY_GREEN = "colorGreen";
-    private static final String FORM_KEY_YELLOW = "colorYellow";
-    private static final String FORM_KEY_RED = "colorRed";
-    private static final String FORM_KEY_SATURATION = "saturation";
-    private static final String FORM_KEY_BRIGHTNESS = "brightness";
     private final HashSet<String> lightId;
     private final String preBuild;
     private final String goodBuild;
@@ -394,22 +387,10 @@ public class LightNotifier extends Notifier {
         }
 
         @Override
-        public boolean configure(StaplerRequest req, JSONObject formData) throws FormException {
-            if (!formData.containsKey(FORM_KEY_BRIDGE_IP) || !formData.containsKey(FORM_KEY_BRIDGE_USERNAME))
-                return false; // keep client on config page
-
-            this.bridgeIp = formData.getString(FORM_KEY_BRIDGE_IP);
-            this.bridgeUsername = formData.getString(FORM_KEY_BRIDGE_USERNAME);
-            this.blue = formData.getString(FORM_KEY_BLUE);
-            this.green = formData.getString(FORM_KEY_GREEN);
-            this.yellow = formData.getString(FORM_KEY_YELLOW);
-            this.red = formData.getString(FORM_KEY_RED);
-            this.saturation = formData.getString(FORM_KEY_SATURATION);
-            this.brightness = formData.getString(FORM_KEY_BRIGHTNESS);
-
-            this.save();
-
-            return super.configure(req, formData);
+        public boolean configure(StaplerRequest req, JSONObject json) throws FormException {
+            req.bindJSON(this, json);
+            save();
+            return true;
         }
 
         public String getBridgeIp() {
@@ -442,6 +423,46 @@ public class LightNotifier extends Notifier {
 
         public String getBrightness() {
             return this.brightness;
+        }
+
+        @DataBoundSetter
+        public void setBridgeIp(String bridgeIp) {
+            this.bridgeIp = bridgeIp;
+        }
+
+        @DataBoundSetter
+        public void setBridgeUsername(String bridgeUsername) {
+            this.bridgeUsername = bridgeUsername;
+        }
+
+        @DataBoundSetter
+        public void setBlue(String blue) {
+            this.blue = blue;
+        }
+
+        @DataBoundSetter
+        public void setGreen(String green) {
+            this.green = green;
+        }
+
+        @DataBoundSetter
+        public void setYellow(String yellow) {
+            this.yellow = yellow;
+        }
+
+        @DataBoundSetter
+        public void setRed(String red) {
+            this.red = red;
+        }
+
+        @DataBoundSetter
+        public void setSaturation(String saturation) {
+            this.saturation = saturation;
+        }
+
+        @DataBoundSetter
+        public void setBrightness(String brightness) {
+            this.brightness = brightness;
         }
     }
 }

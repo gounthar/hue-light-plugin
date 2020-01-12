@@ -3,11 +3,10 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.509.2</version>
-        <!-- which version of Jenkins is this plugin built against? -->
+        <version>3.14</version>
+        <relativePath></relativePath>
     </parent>
 
-    <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>hue-light</artifactId>
     <version>1.2.1-SNAPSHOT</version>
     <packaging>hpi</packaging>
@@ -44,7 +43,7 @@
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
+            <url>https://repo.jenkins-ci.org/public/</url>
         </repository>
         <repository>
             <id>libs</id>
@@ -55,23 +54,17 @@
     <pluginRepositories>
         <pluginRepository>
             <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
+            <url>https://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
-
-    <distributionManagement>
-        <repository>
-            <id>maven.jenkins-ci.org</id>
-            <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <!--
           explicitly specifying the latest version here because one we get from the parent POM
           tends to lag behind a bit
         -->
-        <maven-hpi-plugin.version>1.96</maven-hpi-plugin.version>
+        <jenkins.version>1.651.3</jenkins.version>
+        <java.level>7</java.level>
     </properties>
 
     <dependencies>
